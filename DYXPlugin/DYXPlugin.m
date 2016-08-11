@@ -38,18 +38,7 @@
     
     [self addMenu];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textSelectionDidChange:) name:NSTextViewDidChangeSelectionNotification object:nil];
-//    if (!self.textView) {
-//        NSResponder *firstResponder = [[NSApp keyWindow] firstResponder];
-//        if ([firstResponder isKindOfClass:NSClassFromString(@"DVTSourceTextView")] && [firstResponder isKindOfClass:[NSTextView class]]) {
-//            self.textView = (NSTextView *)firstResponder;
-//        }
-//    }
-//    if (self.textView) {
-//        NSNotification *notification = [NSNotification notificationWithName:NSTextViewDidChangeSelectionNotification object:self.textView];
-//        [self selectionDidChange:notification];
-//        
-//    }
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textSelectionDidChange:) name:NSTextViewDidChangeSelectionNotification object:nil];
 }
 
 - (void)addMenu
@@ -85,29 +74,6 @@
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setMessageText:@"Search Github"];
     [alert runModal];
-}
-
-- (void)textSelectionDidChange:(NSNotification *)notification
-{
-//    NSLog(@"%@", notification);
-    if ([notification.object isKindOfClass:NSClassFromString(@"DVTSourceTextView")]) {
-//        static dispatch_once_t onceToken;
-//        dispatch_once(&onceToken, ^{
-//            
-//        });
-//        NSTextView *DVTSourceTextView = notification.object;
-//        DVTSourceTextView.backgroundColor = [NSColor clearColor];
-//        DVTSourceTextView.layer.opaque = NO;
-//        NSView *superView = DVTSourceTextView.superview;
-//        do {
-//            superView.layer.backgroundColor = [NSColor clearColor].CGColor;
-//            superView.layer.opaque = NO;
-//            superView = superView.superview;
-////            NSLog(@"%@", superView);
-//        } while (superView.superview);
-//        superView.layer.backgroundColor = [NSColor clearColor].CGColor;
-//        superView.layer.opaque = NO;
-    }
 }
 
 - (void)dealloc

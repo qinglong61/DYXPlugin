@@ -25,14 +25,14 @@
 
 + (void)swizzle:(SEL)selector
 {
-    SEL newSelector = NSSelectorFromString([@"GIO" stringByAppendingString:NSStringFromSelector(selector)]);
+    SEL newSelector = NSSelectorFromString([@"sw_" stringByAppendingString:NSStringFromSelector(selector)]);
     method_exchangeImplementations(class_getInstanceMethod([self class], selector),
                                    class_getInstanceMethod([self class], newSelector));
 }
 
 + (void)swizzleClass:(SEL)selector
 {
-    SEL newSelector = NSSelectorFromString([@"GIO" stringByAppendingString:NSStringFromSelector(selector)]);
+    SEL newSelector = NSSelectorFromString([@"sw_" stringByAppendingString:NSStringFromSelector(selector)]);
     method_exchangeImplementations(class_getClassMethod([self class], selector),
                                    class_getClassMethod([self class], newSelector));
 }

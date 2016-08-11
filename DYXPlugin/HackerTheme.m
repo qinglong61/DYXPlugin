@@ -15,9 +15,9 @@
     [self.class swizzle:@selector(setBackgroundColor:)];
 }
 
-- (void)GIOsetBackgroundColor:(id)arg1
+- (void)sw_setBackgroundColor:(id)arg1
 {
-    [self GIOsetBackgroundColor:[NSColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1]];
+    [self sw_setBackgroundColor:[NSColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1]];
 }
 
 @end

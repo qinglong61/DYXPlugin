@@ -28,17 +28,29 @@
                                                  selector:@selector(didApplicationFinishLaunchingNotification:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didApplicationBecomeActiveNotification:)
+                                                     name:NSApplicationDidBecomeActiveNotification
+                                                   object:nil];
     }
     return self;
 }
 
-- (void)didApplicationFinishLaunchingNotification:(NSNotification*)noti
+- (void)didApplicationFinishLaunchingNotification:(NSNotification*)notify
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
     
     [self addMenu];
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textSelectionDidChange:) name:NSTextViewDidChangeSelectionNotification object:nil];
+}
+
+- (void)didApplicationBecomeActiveNotification:(NSNotification*)notify
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidBecomeActiveNotification object:nil];
+    
+    [self changeWindow];
 }
 
 - (void)addMenu
@@ -74,6 +86,28 @@
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setMessageText:@"Search Github"];
     [alert runModal];
+}
+
+- (void)changeWindow
+{
+    NSWindow *window = [[[NSApplication sharedApplication] windows] objectAtIndex:0];
+    NSView *NSThemeFrame = [[window contentView] superview];
+    
+    Method m0 = class_getInstanceMethod([self class], @selector(sw_drawRect:));
+    class_addMethod([NSThemeFrame class], @selector(sw_drawRect:), method_getImplementation(m0), method_getTypeEncoding(m0));
+    
+    Method m1 = class_getInstanceMethod([NSThemeFrame class], @selector(drawRect:));
+    Method m2 = class_getInstanceMethod([NSThemeFrame class], @selector(sw_drawRect:));
+    
+    method_exchangeImplementations(m1, m2);
+}
+
+- (void)sw_drawRect:(NSRect)rect
+{
+    [self sw_drawRect:rect];
+    
+    [[NSColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1] set];
+    [[NSBezierPath bezierPathWithRect:rect] fill];
 }
 
 - (void)dealloc

@@ -26,7 +26,7 @@
 		D835C0D51C2CFFEA00194141 /* NSObject_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
 		D835C0D71C2CFFEA00194141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D87524B51D5C204300771478 /* HackerTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HackerTheme.h; sourceTree = "<group>"; };
-		D87524B61D5C204300771478 /* HackerTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HackerTheme.m; sourceTree = "<group>"; };
+		D87524B61D5C204300771478 /* HackerTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HackerTheme.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D87524B81D5C217400771478 /* XcodeInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeInterface.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

@@ -13,6 +13,15 @@
 - (void)setBackgroundColor:(id)arg1;
 @end
 
+@interface IDEWorkspaceWindow : NSWindow
++ (id)lastActiveWorkspaceWindowController;
+- (void)toggleToolbarShown:(id)arg1;
+@end
+
+@interface IDEWorkspaceWindowController : NSWindowController
+- (void)windowDidLoad;
+@end
+
 #import <objc/runtime.h>
 
 @interface NSObject (GrowingIO)

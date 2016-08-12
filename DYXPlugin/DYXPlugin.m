@@ -29,9 +29,14 @@
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
         
+//        [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(filterNotification:)
+//                                                     name:nil
+//                                                   object:nil];
+        
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(didApplicationBecomeActiveNotification:)
-                                                     name:NSApplicationDidBecomeActiveNotification
+                                                 selector:@selector(windowWillBecomeVisible:)
+                                                     name:@"_NSWindowWillBecomeVisible"
                                                    object:nil];
     }
     return self;
@@ -40,17 +45,34 @@
 - (void)didApplicationFinishLaunchingNotification:(NSNotification*)notify
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
-    
     [self addMenu];
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textSelectionDidChange:) name:NSTextViewDidChangeSelectionNotification object:nil];
 }
 
-- (void)didApplicationBecomeActiveNotification:(NSNotification*)notify
+- (void)windowWillBecomeVisible:(NSNotification *)notify
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidBecomeActiveNotification object:nil];
-    
-    [self changeWindow];
+    if ([notify.object isKindOfClass:[IDEWorkspaceWindow class]]) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:@"_NSWindowWillBecomeVisible" object:nil];
+        [self changeWindow:notify.object];
+    }
+}
+
+- (void)filterNotification:(NSNotification*)notify
+{
+//    if ([notify.name containsString:@"NSThreadWillExitNotification"]
+//        || [notify.name containsString:@"NSUserDefaultsDidChangeNotification"]
+//        || [notify.name containsString:@"NSViewFrameDidChangeNotification"]
+//        || [notify.name containsString:@"DVTDeviceUsabilityDidChangeNotification"]
+//        || [notify.name containsString:@"NSViewDidUpdateTrackingAreasNotification"]
+//        || [notify.name containsString:@"NSMenu"]
+//        || [notify.name containsString:@"NSBundleDidLoadNotification"]
+//        || [notify.name containsString:@"IDEEditor"]
+//        || [notify.name containsString:@"NSApplication"]
+//        ) {
+//        return;
+//    }
+    NSLog(@"%@", notify.name);
 }
 
 - (void)addMenu
@@ -88,9 +110,8 @@
     [alert runModal];
 }
 
-- (void)changeWindow
+- (void)changeWindow:(IDEWorkspaceWindow *)window
 {
-    NSWindow *window = [[[NSApplication sharedApplication] windows] objectAtIndex:0];
     NSView *NSThemeFrame = [[window contentView] superview];
     
     Method m0 = class_getInstanceMethod([self class], @selector(sw_drawRect:));

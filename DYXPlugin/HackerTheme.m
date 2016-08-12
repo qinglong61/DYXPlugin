@@ -21,3 +21,17 @@
 }
 
 @end
+
+@implementation IDEWorkspaceWindowController (HackerTheme)
+
++ (void)load
+{
+//    [self.class swizzle:@selector(windowDidLoad)];
+}
+
+- (void)sw_windowDidLoad
+{
+    [self sw_windowDidLoad];
+}
+
+@end

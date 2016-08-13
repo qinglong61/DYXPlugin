@@ -6,7 +6,16 @@
 //  Copyright © 2015年 duanqinglun. All rights reserved.
 //
 
-#import "XcodeInterface.h"
+#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
+#import <objc/runtime.h>
+
+@interface NSObject (GrowingIO)
+
++ (void)swizzle:(SEL)selector;
++ (void)swizzleClass:(SEL)selector;
+
+@end
 
 @class DYXPlugin;
 

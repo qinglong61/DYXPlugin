@@ -12,7 +12,7 @@
 		D835C0D01C2CFFEA00194141 /* DYXPlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = D835C0CF1C2CFFEA00194141 /* DYXPlugin.xcscheme */; };
 		D835C0D31C2CFFEA00194141 /* DYXPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D835C0D21C2CFFEA00194141 /* DYXPlugin.m */; };
 		D835C0D61C2CFFEA00194141 /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D835C0D51C2CFFEA00194141 /* NSObject_Extension.m */; };
-		D87524B71D5C204300771478 /* HackerTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D87524B61D5C204300771478 /* HackerTheme.m */; };
+		D87524B71D5C204300771478 /* HackerTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D87524B61D5C204300771478 /* HackerTheme.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +25,7 @@
 		D835C0D41C2CFFEA00194141 /* NSObject_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
 		D835C0D51C2CFFEA00194141 /* NSObject_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
 		D835C0D71C2CFFEA00194141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D87524B51D5C204300771478 /* HackerTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HackerTheme.h; sourceTree = "<group>"; };
 		D87524B61D5C204300771478 /* HackerTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HackerTheme.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D87524B81D5C217400771478 /* XcodeInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeInterface.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,12 +70,10 @@
 		D835C0CD1C2CFFEA00194141 /* DYXPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				D835C0DF1C2D00E000194141 /* Header */,
 				D835C0D11C2CFFEA00194141 /* DYXPlugin.h */,
 				D835C0D21C2CFFEA00194141 /* DYXPlugin.m */,
 				D835C0D41C2CFFEA00194141 /* NSObject_Extension.h */,
 				D835C0D51C2CFFEA00194141 /* NSObject_Extension.m */,
-				D87524B51D5C204300771478 /* HackerTheme.h */,
 				D87524B61D5C204300771478 /* HackerTheme.m */,
 				D835C0D71C2CFFEA00194141 /* Info.plist */,
 				D835C0CE1C2CFFEA00194141 /* Supporting Files */,
@@ -91,14 +87,6 @@
 				D835C0CF1C2CFFEA00194141 /* DYXPlugin.xcscheme */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D835C0DF1C2D00E000194141 /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				D87524B81D5C217400771478 /* XcodeInterface.h */,
-			);
-			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

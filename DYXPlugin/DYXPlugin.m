@@ -52,7 +52,7 @@
 
 - (void)windowWillBecomeVisible:(NSNotification *)notify
 {
-    if ([notify.object isKindOfClass:[IDEWorkspaceWindow class]]) {
+    if ([notify.object isKindOfClass:NSClassFromString(@"IDEWorkspaceWindow")]) {
         [[NSNotificationCenter defaultCenter] removeObserver:self name:@"_NSWindowWillBecomeVisible" object:nil];
         [self changeWindow:notify.object];
     }
@@ -110,7 +110,7 @@
     [alert runModal];
 }
 
-- (void)changeWindow:(IDEWorkspaceWindow *)window
+- (void)changeWindow:(NSWindow *)window
 {
     NSView *NSThemeFrame = [[window contentView] superview];
     
